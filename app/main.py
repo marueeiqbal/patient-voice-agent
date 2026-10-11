@@ -12,6 +12,7 @@ from typing import Optional
 from app import crud, models  # noqa: F401  (models import registers the table)
 from app.database import Base, engine, get_db
 from app.schemas import PatientCreate, PatientOut, PatientUpdate
+from app.vapi_webhook import router as vapi_router
 
 load_dotenv()
 
@@ -25,6 +26,7 @@ logger = logging.getLogger("patient-api")
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Patient Registration API")
+app.include_router(vapi_router)
 
 
 # ---------- Response envelope: {"data": ..., "error": null} ----------
