@@ -179,4 +179,4 @@ class PatientOut(BaseModel):
     emergency_contact_name: Optional[str] = None
     emergency_contact_phone: Optional[str] = None
     created_at: datetime
-    updated_at: datetimes
+    updated_at: datetime
